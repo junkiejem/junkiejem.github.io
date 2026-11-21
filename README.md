@@ -1,2 +1,2 @@
-# junkiejem.github.io
+# junkiejem.net
 Junkiejem's Web Portfolio
