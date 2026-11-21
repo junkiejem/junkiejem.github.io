@@ -1,123 +1,52 @@
----
-layout: page
-title: Project Explorer
-permalink: /portfolio-explorer/
----
-
-<div id="jem-project-explorer">
-  <style>
-    #jem-project-explorer{--je-ink:#282522;--je-muted:#756e67;--je-accent:#a7473d;--je-paper:#f8f6f1;--je-line:#e4ded6;font-family:inherit;color:var(--je-ink);margin:0 auto 2rem}
-    #jem-project-explorer *{box-sizing:border-box}
-    #jem-project-explorer .je-wrap{background:var(--je-paper);border:1px solid var(--je-line);border-radius:14px;padding:clamp(18px,4vw,38px)}
-    #jem-project-explorer .je-kicker{font-size:11px;letter-spacing:2.8px;text-transform:uppercase;font-weight:700;color:var(--je-accent)}
-    #jem-project-explorer .je-title{font-size:clamp(30px,5vw,54px);line-height:1.08;letter-spacing:-1.5px;margin:12px 0 14px;color:var(--je-ink)}
-    #jem-project-explorer .je-intro{max-width:650px;color:var(--je-muted);font-size:14px;line-height:1.8;margin:0 0 28px}
-    #jem-project-explorer .je-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
-    #jem-project-explorer .je-filters{display:flex;gap:8px;flex-wrap:wrap}
-    #jem-project-explorer button{font-family:inherit}
-    #jem-project-explorer .je-filter{border:1px solid var(--je-line);border-radius:99px;background:transparent;color:var(--je-ink);padding:9px 14px;font-size:12px;cursor:pointer;transition:.2s}
-    #jem-project-explorer .je-filter:hover,#jem-project-explorer .je-filter.is-active{background:var(--je-ink);color:#fff;border-color:var(--je-ink)}
-    #jem-project-explorer .je-search{border:1px solid var(--je-line);background:white;border-radius:99px;padding:11px 15px;width:min(100%,230px);font-size:13px;color:var(--je-ink);outline:none}
-    #jem-project-explorer .je-search:focus{border-color:var(--je-accent)}
-    #jem-project-explorer .je-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    #jem-project-explorer .je-card{border:1px solid var(--je-line);border-radius:11px;background:#fff;padding:22px;transition:transform .22s,box-shadow .22s}
-    #jem-project-explorer .je-card:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(30,20,10,.07)}
-    #jem-project-explorer .je-card[hidden]{display:none!important}
-    #jem-project-explorer .je-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:18px}
-    #jem-project-explorer .je-num{font-size:10px;letter-spacing:1px;color:#9d958d}
-    #jem-project-explorer .je-tag{font-size:10px;color:var(--je-accent);background:#f7eeeb;border-radius:99px;padding:6px 9px}
-    #jem-project-explorer .je-card h3{font-size:19px;line-height:1.35;margin:0 0 10px;color:var(--je-ink)}
-    #jem-project-explorer .je-desc{font-size:13px;line-height:1.75;color:var(--je-muted);margin:0}
-    #jem-project-explorer .je-stack{border-top:1px solid var(--je-line);margin-top:17px;padding-top:13px;font-size:11px;line-height:1.7;color:#89827b}
-    #jem-project-explorer .je-more{border:0;background:none;color:var(--je-accent);font-weight:700;padding:12px 0 0;cursor:pointer;font-size:12px}
-    #jem-project-explorer .je-details{margin-top:12px;padding:13px;border-radius:8px;background:#faf8f5;font-size:12px;line-height:1.7;color:var(--je-muted)}
-    #jem-project-explorer .je-details[hidden]{display:none!important}
-    #jem-project-explorer .je-empty{display:none;text-align:center;padding:30px;color:var(--je-muted);font-size:13px}
-    #jem-project-explorer .je-foot{border-top:1px solid var(--je-line);margin-top:28px;padding-top:18px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--je-muted);font-size:11px}
-    #jem-project-explorer .je-foot b{color:var(--je-accent)}
-    @media(max-width:640px){#jem-project-explorer .je-grid{grid-template-columns:1fr}#jem-project-explorer .je-toolbar{align-items:stretch;flex-direction:column}#jem-project-explorer .je-search{width:100%}#jem-project-explorer .je-card{padding:18px}}
-    @media(prefers-reduced-motion:reduce){#jem-project-explorer *{transition:none!important;scroll-behavior:auto!important}}
-  </style>
-  <section class="je-wrap" aria-label="Interactive portfolio project explorer">
-    <div class="je-kicker">Selected work · Project archive</div>
-    <h2 class="je-title">Projects, experiments<br>and things made useful.</h2>
-    <p class="je-intro">A curated collection of websites, digital experiences, tools, and systems. Filter by type or search for a project to explore.</p>
-    <div class="je-toolbar">
-      <div class="je-filters" role="group" aria-label="Filter projects">
-        <button class="je-filter is-active" type="button" data-filter="all" aria-pressed="true">Everything</button>
-        <button class="je-filter" type="button" data-filter="website" aria-pressed="false">Websites</button>
-        <button class="je-filter" type="button" data-filter="commerce" aria-pressed="false">Commerce</button>
-        <button class="je-filter" type="button" data-filter="tool" aria-pressed="false">Systems &amp; tools</button>
-      </div>
-      <input class="je-search" type="search" placeholder="Search projects…" aria-label="Search portfolio projects">
-    </div>
-    <div class="je-grid">
-      <article class="je-card" data-kind="website" data-keywords="kulturspect gallery paintings artist art advocacy online gallery">
-        <div class="je-meta"><span class="je-num">01 / WEB</span><span class="je-tag">Online gallery</span></div>
-        <h3>Kulturspect Online Gallery</h3><p class="je-desc">An online showcase of paintings, artist profile, personal words, and advocacy.</p>
-        <div class="je-stack">HTML · CSS · JavaScript · jQuery · WordPress</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Digital gallery concept with artwork showcase, artist information, advocacy content, and inquiry form.</div>
-      </article>
-      <article class="je-card" data-kind="tool" data-keywords="task scheduler organizer calendar drag drop weekly monthly tasks planner">
-        <div class="je-meta"><span class="je-num">02 / TOOL</span><span class="je-tag">Productivity</span></div>
-        <h3>Task Scheduler v.01</h3><p class="je-desc">A web organizer for planning weekly and monthly tasks using a calendar and drag-and-drop workflow.</p>
-        <div class="je-stack">HTML · Bootstrap · JavaScript · JSON · MySQL · PHP</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Calendar-oriented task planner focused on scheduling, rearranging, and organizing tasks.</div>
-      </article>
-      <article class="je-card" data-kind="commerce" data-keywords="kitao ecommerce online store cosmetics hair makeup nail beauty shop products">
-        <div class="je-meta"><span class="je-num">03 / SHOP</span><span class="je-tag">E-commerce</span></div>
-        <h3>Kitao Online Shop</h3><p class="je-desc">A beauty and cosmetics storefront featuring hair, makeup, nail, and care products.</p>
-        <div class="je-stack">HTML · CSS · JavaScript · PHP</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Storefront experience with product discovery, order administration, and inquiry functionality.</div>
-      </article>
-      <article class="je-card" data-kind="tool" data-keywords="ccmc medical center directory doctors clinics search medical healthcare provider directory">
-        <div class="je-meta"><span class="je-num">04 / SYSTEM</span><span class="je-tag">Medical directory</span></div>
-        <h3>CCMC Medical Center Directory</h3><p class="je-desc">A searchable directory of doctors and clinics, organized to help visitors find provider information.</p>
-        <div class="je-stack">HTML · Bootstrap · JavaScript · jQuery · PHP</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Provider and clinic lookup with categorized listings, contact information, and patient inquiry flow.</div>
-      </article>
-      <article class="je-card" data-kind="tool" data-keywords="taco bell reporting portal sales analytics donations auctions highcharts dashboard reports">
-        <div class="je-meta"><span class="je-num">05 / DATA</span><span class="je-tag">Analytics portal</span></div>
-        <h3>Taco Bell Web Portal</h3><p class="je-desc">A reporting portal with monthly and annual analytics for sales, donations, and auction activity.</p>
-        <div class="je-stack">HTML · CSS · JavaScript · jQuery · JSON · WordPress · Highcharts</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Reporting and chart-driven dashboard built to make activity and performance data easier to review.</div>
-      </article>
-      <article class="je-card" data-kind="tool" data-keywords="pride industries form management system fms forms reporting custom form reports">
-        <div class="je-meta"><span class="je-num">06 / SYSTEM</span><span class="je-tag">Form management</span></div>
-        <h3>Pride Industries FMS</h3><p class="je-desc">A flexible form management system for creating forms and generating reports on demand.</p>
-        <div class="je-stack">HTML · CSS · JavaScript · jQuery · JSON · WordPress · Highcharts</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Form builder and reporting workflow supporting user-created forms and flexible data visualization.</div>
-      </article>
-      <article class="je-card" data-kind="website" data-keywords="italpinas corporate website revamp projects company services profile advocacy">
-        <div class="je-meta"><span class="je-num">07 / WEB</span><span class="je-tag">Corporate site</span></div>
-        <h3>ITALPinas Website Revamp</h3><p class="je-desc">A corporate web experience highlighting projects, company profile, advocacy, and services.</p>
-        <div class="je-stack">HTML · Bootstrap · JavaScript · jQuery · WordPress</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Corporate information architecture and web redesign for presenting company work, services, and mission.</div>
-      </article>
-      <article class="je-card" data-kind="commerce" data-keywords="megadeals group buying marketplace deals philippines ecommerce payments promotions">
-        <div class="je-meta"><span class="je-num">08 / COMMERCE</span><span class="je-tag">Group buying</span></div>
-        <h3>Megadeals</h3><p class="je-desc">A group-buying platform with limited-time deals across goods, retail, and services.</p>
-        <div class="je-stack">E-commerce · Payments · Promotions · Email campaigns</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Deal-based shopping experience with promotions, online payments, friend invites, newsletters, and campaign email.</div>
-      </article>
-      <article class="je-card" data-kind="website" data-keywords="perfect cars vehicle catalogue used cars listing search advanced search thai english translation upload">
-        <div class="je-meta"><span class="je-num">09 / WEB</span><span class="je-tag">Automotive</span></div>
-        <h3>Perfect Cars v.01</h3><p class="je-desc">A vehicle catalogue with searchable listings, language support, and car listing uploads.</p>
-        <div class="je-stack">HTML · CSS · JavaScript · jQuery · WordPress</div>
-        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Includes basic and advanced vehicle search, English–Thai language support, listing uploads, and inquiry functionality.</div>
-      </article>
-    </div>
-    <div class="je-empty" role="status">No matching projects found. Try another search or filter.</div>
-    <div class="je-foot"><span>A little curiosity. A lot of iteration.</span><b>9 projects in this collection</b></div>
-  </section>
-  <script>
-    (function(){
-      var root=document.getElementById('jem-project-explorer');if(!root||root.dataset.ready)return;root.dataset.ready='1';
-      var buttons=root.querySelectorAll('.je-filter'),cards=root.querySelectorAll('.je-card'),search=root.querySelector('.je-search'),empty=root.querySelector('.je-empty'),filter='all';
-      function render(){var q=search.value.trim().toLowerCase(),shown=0;cards.forEach(function(card){var category=filter==='all'||card.dataset.kind===filter;var text=(card.dataset.keywords+' '+card.textContent).toLowerCase();var match=!q||text.indexOf(q)!==-1;var visible=category&&match;card.hidden=!visible;if(visible)shown++;});empty.style.display=shown?'none':'block';}
-      buttons.forEach(function(btn){btn.addEventListener('click',function(){filter=btn.dataset.filter;buttons.forEach(function(b){b.classList.remove('is-active');b.setAttribute('aria-pressed','false');});btn.classList.add('is-active');btn.setAttribute('aria-pressed','true');render();});});
-      search.addEventListener('input',render);
-      root.querySelectorAll('.je-more').forEach(function(btn){btn.addEventListener('click',function(){var detail=btn.nextElementSibling,open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));detail.hidden=open;btn.textContent=open?'View project notes +':'Hide notes −';});});
-    })();
-  </script>
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Joana Elizabeth Manao — Lead Systems Analyst, Certified SAFe 5 Scrum Master, and technology professional with 17+ years of experience.">
+<title>Joana Elizabeth Manao | Digital Experiences & Agile Delivery</title>
+<style>
+:root{--bg:#f6f3ed;--paper:#fffdfa;--ink:#242321;--muted:#716d67;--red:#a64d43;--line:#e6dfd6;--soft:#efe8df;--serif:Georgia,'Times New Roman',serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}a{color:inherit}.shell{width:min(1120px,calc(100% - 44px));margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0;border-bottom:1px solid var(--line)}.brand{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.navlinks{display:flex;gap:24px;font-size:12px;color:var(--muted)}.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--red)}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;padding:90px 0 80px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.22em;font-weight:800;color:var(--red)}h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,7vw,86px);line-height:.98;letter-spacing:-.055em;margin:18px 0 22px}.hero p{max-width:650px;color:var(--muted);font-size:16px;line-height:1.9}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--ink);border-radius:3px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.04em}.btn.primary{background:var(--ink);color:white}.btn:hover{transform:translateY(-2px)}.portrait{min-height:400px;background:linear-gradient(145deg,#d9c9b8,#efe7dc 52%,#b96c5e);border-radius:48% 48% 8px 8px;position:relative;overflow:hidden;display:grid;place-items:center}.portrait:before{content:"JEM";font-family:var(--serif);font-size:clamp(90px,16vw,190px);color:#fff9;letter-spacing:-.08em}.portrait:after{content:"SYSTEMS • PEOPLE • DIGITAL";position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.22em;color:#453b34}.portrait-note{position:absolute;top:22px;left:22px;background:#fff9;padding:8px 11px;font-size:10px;letter-spacing:.1em;text-transform:uppercase}.section{padding:76px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}.section h2{font:400 clamp(34px,5vw,54px)/1.05 var(--serif);letter-spacing:-.04em;margin:10px 0}.section-intro{max-width:470px;color:var(--muted);font-size:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tile{background:var(--paper);border:1px solid var(--line);padding:24px;min-height:190px}.tile .num{font:italic 24px var(--serif);color:var(--red)}.tile h3{font-size:17px;margin:18px 0 8px}.tile p{font-size:13px;color:var(--muted);margin:0}.split{display:grid;grid-template-columns:1fr 1fr;gap:50px}.quote{font:italic clamp(26px,3vw,38px)/1.3 var(--serif);margin:0}.bodycopy{color:var(--muted);font-size:14px;line-height:1.9}.timeline{border-left:1px solid #cfc5ba;margin:20px 0 0 7px;padding-left:26px}.role{position:relative;padding:0 0 28px}.role:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--red);left:-31px;top:7px}.role time{font-size:11px;letter-spacing:.1em;color:var(--red);font-weight:800}.role h3{font-size:16px;margin:5px 0 2px}.role .company{font-size:12px;color:var(--muted)}.role p{font-size:13px;color:var(--muted);margin:8px 0 0}.skills{display:flex;flex-wrap:wrap;gap:9px}.chip{border:1px solid var(--line);background:var(--paper);padding:9px 12px;font-size:12px}.cta{background:var(--ink);color:#fff;padding:50px;display:flex;justify-content:space-between;align-items:center;gap:25px}.cta h2{font:400 clamp(34px,5vw,52px)/1.05 var(--serif);margin:8px 0}.cta p{color:#d0c9c1;font-size:13px}.cta .btn{border-color:#fff;color:#fff;white-space:nowrap}.footer{padding:28px 0 40px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.smallcaps{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:800}
+@media(max-width:760px){.nav{align-items:flex-start;gap:15px;flex-direction:column}.navlinks{gap:15px;flex-wrap:wrap}.hero{grid-template-columns:1fr;gap:35px;padding:60px 0}.portrait{min-height:270px}.grid3{grid-template-columns:1fr}.split{grid-template-columns:1fr;gap:25px}.section{padding:55px 0}.cta{padding:30px;align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="shell nav"><a class="brand" href="#top" style="text-decoration:none">JEM / Portfolio</a><nav class="navlinks" aria-label="Main navigation"><a href="#about">About</a><a href="#what-i-do">What I do</a><a href="#experience">Experience</a><a href="portfolio-explorer.html">Projects</a><a href="#contact">Contact</a></nav></header>
+<main id="top" class="shell">
+<section class="hero">
+<div><div class="eyebrow">Lead Systems Analyst · Certified SAFe 5 Scrum Master</div><h1>People,<br>process &amp;<br>possibility.</h1>
+<p>I’m Joana Elizabeth Manao — an IT professional with 17+ years of experience spanning front-end and full-stack web development, systems analysis, and Agile delivery. I bring technical understanding and people-centered facilitation together to help teams turn complex work into clear, achievable outcomes.</p>
+<div class="actions"><a class="btn primary" href="portfolio-explorer.html">Explore my projects ↗</a><a class="btn" href="#experience">View experience</a></div></div>
+<div class="portrait" role="img" aria-label="Abstract warm-toned portfolio monogram artwork"><span class="portrait-note">A little about my work</span></div>
+</section>
+<section id="about" class="section"><div class="section-head"><div><div class="eyebrow">01 / About</div><h2>A bridge between<br>technology and teams.</h2></div><p class="section-intro">My career began in hands-on web development and grew into systems analysis and Scrum facilitation. That combination lets me understand both the technical details and the collaboration needed to deliver useful solutions.</p></div>
+<div class="split"><p class="quote">“Good delivery happens when people have clarity, trust, and room to do their best work.”</p><div class="bodycopy"><p>Today, my work centers on helping teams plan, coordinate, and continuously improve. I facilitate Scrum ceremonies, support backlog refinement and sprint planning, help surface and resolve impediments, and work with product owners, business analysts, architects, and stakeholders to keep delivery moving.</p><p>My earlier development experience gives me a practical foundation for discussing requirements, feasibility, user-facing experiences, integrations, and implementation quality.</p></div></div></section>
+<section id="what-i-do" class="section"><div class="eyebrow">02 / What I do</div><h2>From idea to delivery.</h2><p class="section-intro">A blend of delivery leadership, systems thinking, and hands-on technical experience.</p>
+<div class="grid3">
+<article class="tile"><div class="num">01</div><h3>Agile &amp; Scrum facilitation</h3><p>Sprint planning, daily scrums, reviews, retrospectives, backlog refinement, team coaching, and continuous improvement.</p></article>
+<article class="tile"><div class="num">02</div><h3>Systems analysis</h3><p>Project intake discussions, feasibility thinking, refining requirements and diagrams, and aligning business and development teams.</p></article>
+<article class="tile"><div class="num">03</div><h3>Web development</h3><p>Front-end and full-stack experience building responsive interfaces, web applications, e-commerce experiences, and integrations.</p></article>
+<article class="tile"><div class="num">04</div><h3>Stakeholder collaboration</h3><p>Working across product owners, business analysts, solution architects, SMEs, engineering teams, and offshore partners.</p></article>
+<article class="tile"><div class="num">05</div><h3>Team enablement</h3><p>Clarifying priorities, balancing workloads, addressing impediments, and helping teams become more self-organizing.</p></article>
+<article class="tile"><div class="num">06</div><h3>Process improvement</h3><p>Identifying opportunities to simplify workflows, reduce manual effort, improve quality, and support better product delivery.</p></article>
+</div></section>
+<section id="experience" class="section"><div class="eyebrow">03 / Career journey</div><h2>Experience that keeps evolving.</h2><div class="split"><div class="bodycopy"><p>Over more than 17 years, I’ve moved through web engineering, full-stack development, senior development, systems analysis, and Agile facilitation.</p><p>This progression has shaped how I approach work: understand the problem, make the work visible, bring the right people together, and keep improving the way solutions are delivered.</p><p><strong>Education:</strong> Bachelor of Science in Information Technology, Adamson University (2005–2009).</p><p><strong>Certification:</strong> Certified SAFe 5 Scrum Master.</p></div>
+<div class="timeline">
+<div class="role"><time>JAN 2022 — PRESENT</time><h3>Certified SAFe 5 Scrum Master</h3><div class="company">Solutions30 Group · Bonifacio Global City</div><p>Facilitates Scrum events, coaches teams in Agile practices, helps remove impediments, and collaborates with product and delivery stakeholders.</p></div>
+<div class="role"><time>LEAD SYSTEMS ANALYST</time><h3>Systems analysis</h3><div class="company">Eastvantage Business Solutions · Bonifacio Global City</div><p>Works with business analysts, product managers, architects, and SMEs on project intake, feasibility, implementation proposals, and process improvements.</p></div>
+<div class="role"><time>JUL 2014 — JAN 2022</time><h3>Senior PHP Web Developer</h3><div class="company">Eastvantage Business Solutions</div><p>Built mobile-friendly websites and web applications, translated mockups into working interfaces, integrated APIs, and supported front- and back-end development.</p></div>
+<div class="role"><time>MAY 2012 — MAY 2014</time><h3>Web / UX Engineer</h3><div class="company">iGen Technologies Inc.</div><p>Developed web applications, embedded user interfaces for devices, and microsites.</p></div>
+<div class="role"><time>JAN 2010 — MAY 2012</time><h3>Full-Stack Web Developer</h3><div class="company">BUYanihan Philippines Inc.</div><p>Worked on e-commerce web processes, payment solutions, front-end design, and functional testing.</p></div>
+<div class="role"><time>MAY 2009 — DEC 2009</time><h3>Full-Stack Web Developer</h3><div class="company">Flax Incorporated</div><p>Implemented front- and back-end designs and unit testing for e-commerce websites.</p></div>
+</div></div></section>
+<section class="section"><div class="eyebrow">04 / Skills &amp; toolkit</div><h2>My working toolkit.</h2><p class="section-intro">Selected technologies and practices listed in my 2026 resume.</p>
+<div class="smallcaps">Agile, delivery &amp; collaboration</div><div class="skills" style="margin:14px 0 28px"><span class="chip">Scrum</span><span class="chip">SAFe 5</span><span class="chip">Sprint planning</span><span class="chip">Backlog refinement</span><span class="chip">JIRA</span><span class="chip">Confluence</span><span class="chip">Risk mitigation</span><span class="chip">Stakeholder management</span><span class="chip">MS Teams / Zoom</span><span class="chip">Slack</span></div>
+<div class="smallcaps">Development &amp; technology</div><div class="skills" style="margin-top:14px"><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">ReactJS</span><span class="chip">CakePHP</span><span class="chip">Laravel</span><span class="chip">TypeScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">ECMAScript</span><span class="chip">PostgreSQL</span><span class="chip">NodeJS</span><span class="chip">REST / SOAP</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">AWS</span><span class="chip">Git</span><span class="chip">Kibana</span><span class="chip">NPM</span><span class="chip">Kiro (AI)</span></div>
+</section>
+<section id="contact" class="section"><div class="cta"><div><div class="smallcaps" style="color:#d99b90">05 / Get in touch</div><h2>Let’s make good<br>work happen.</h2><p>Interested in collaboration, digital delivery, or exchanging ideas?</p></div><div class="actions"><a class="btn" href="https://www.linkedin.com/in/joana-elizabeth-manao-2b65b240/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="mailto:jemaiimanao@gmail.com">Email me ↗</a><a class="btn" href="portfolio-explorer.html">Project archive ↗</a></div></div></section>
+</main>
+<footer class="shell footer"><span>© <span id="year"></span> Joana Elizabeth Manao</span><span>Built with clarity, curiosity &amp; code.</span></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body></html>
