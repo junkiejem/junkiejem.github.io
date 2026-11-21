@@ -1,0 +1,123 @@
+---
+layout: page
+title: Project Explorer
+permalink: /portfolio-explorer/
+---
+
+<div id="jem-project-explorer">
+  <style>
+    #jem-project-explorer{--je-ink:#282522;--je-muted:#756e67;--je-accent:#a7473d;--je-paper:#f8f6f1;--je-line:#e4ded6;font-family:inherit;color:var(--je-ink);margin:0 auto 2rem}
+    #jem-project-explorer *{box-sizing:border-box}
+    #jem-project-explorer .je-wrap{background:var(--je-paper);border:1px solid var(--je-line);border-radius:14px;padding:clamp(18px,4vw,38px)}
+    #jem-project-explorer .je-kicker{font-size:11px;letter-spacing:2.8px;text-transform:uppercase;font-weight:700;color:var(--je-accent)}
+    #jem-project-explorer .je-title{font-size:clamp(30px,5vw,54px);line-height:1.08;letter-spacing:-1.5px;margin:12px 0 14px;color:var(--je-ink)}
+    #jem-project-explorer .je-intro{max-width:650px;color:var(--je-muted);font-size:14px;line-height:1.8;margin:0 0 28px}
+    #jem-project-explorer .je-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+    #jem-project-explorer .je-filters{display:flex;gap:8px;flex-wrap:wrap}
+    #jem-project-explorer button{font-family:inherit}
+    #jem-project-explorer .je-filter{border:1px solid var(--je-line);border-radius:99px;background:transparent;color:var(--je-ink);padding:9px 14px;font-size:12px;cursor:pointer;transition:.2s}
+    #jem-project-explorer .je-filter:hover,#jem-project-explorer .je-filter.is-active{background:var(--je-ink);color:#fff;border-color:var(--je-ink)}
+    #jem-project-explorer .je-search{border:1px solid var(--je-line);background:white;border-radius:99px;padding:11px 15px;width:min(100%,230px);font-size:13px;color:var(--je-ink);outline:none}
+    #jem-project-explorer .je-search:focus{border-color:var(--je-accent)}
+    #jem-project-explorer .je-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    #jem-project-explorer .je-card{border:1px solid var(--je-line);border-radius:11px;background:#fff;padding:22px;transition:transform .22s,box-shadow .22s}
+    #jem-project-explorer .je-card:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(30,20,10,.07)}
+    #jem-project-explorer .je-card[hidden]{display:none!important}
+    #jem-project-explorer .je-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:18px}
+    #jem-project-explorer .je-num{font-size:10px;letter-spacing:1px;color:#9d958d}
+    #jem-project-explorer .je-tag{font-size:10px;color:var(--je-accent);background:#f7eeeb;border-radius:99px;padding:6px 9px}
+    #jem-project-explorer .je-card h3{font-size:19px;line-height:1.35;margin:0 0 10px;color:var(--je-ink)}
+    #jem-project-explorer .je-desc{font-size:13px;line-height:1.75;color:var(--je-muted);margin:0}
+    #jem-project-explorer .je-stack{border-top:1px solid var(--je-line);margin-top:17px;padding-top:13px;font-size:11px;line-height:1.7;color:#89827b}
+    #jem-project-explorer .je-more{border:0;background:none;color:var(--je-accent);font-weight:700;padding:12px 0 0;cursor:pointer;font-size:12px}
+    #jem-project-explorer .je-details{margin-top:12px;padding:13px;border-radius:8px;background:#faf8f5;font-size:12px;line-height:1.7;color:var(--je-muted)}
+    #jem-project-explorer .je-details[hidden]{display:none!important}
+    #jem-project-explorer .je-empty{display:none;text-align:center;padding:30px;color:var(--je-muted);font-size:13px}
+    #jem-project-explorer .je-foot{border-top:1px solid var(--je-line);margin-top:28px;padding-top:18px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--je-muted);font-size:11px}
+    #jem-project-explorer .je-foot b{color:var(--je-accent)}
+    @media(max-width:640px){#jem-project-explorer .je-grid{grid-template-columns:1fr}#jem-project-explorer .je-toolbar{align-items:stretch;flex-direction:column}#jem-project-explorer .je-search{width:100%}#jem-project-explorer .je-card{padding:18px}}
+    @media(prefers-reduced-motion:reduce){#jem-project-explorer *{transition:none!important;scroll-behavior:auto!important}}
+  </style>
+  <section class="je-wrap" aria-label="Interactive portfolio project explorer">
+    <div class="je-kicker">Selected work · Project archive</div>
+    <h2 class="je-title">Projects, experiments<br>and things made useful.</h2>
+    <p class="je-intro">A curated collection of websites, digital experiences, tools, and systems. Filter by type or search for a project to explore.</p>
+    <div class="je-toolbar">
+      <div class="je-filters" role="group" aria-label="Filter projects">
+        <button class="je-filter is-active" type="button" data-filter="all" aria-pressed="true">Everything</button>
+        <button class="je-filter" type="button" data-filter="website" aria-pressed="false">Websites</button>
+        <button class="je-filter" type="button" data-filter="commerce" aria-pressed="false">Commerce</button>
+        <button class="je-filter" type="button" data-filter="tool" aria-pressed="false">Systems &amp; tools</button>
+      </div>
+      <input class="je-search" type="search" placeholder="Search projects…" aria-label="Search portfolio projects">
+    </div>
+    <div class="je-grid">
+      <article class="je-card" data-kind="website" data-keywords="kulturspect gallery paintings artist art advocacy online gallery">
+        <div class="je-meta"><span class="je-num">01 / WEB</span><span class="je-tag">Online gallery</span></div>
+        <h3>Kulturspect Online Gallery</h3><p class="je-desc">An online showcase of paintings, artist profile, personal words, and advocacy.</p>
+        <div class="je-stack">HTML · CSS · JavaScript · jQuery · WordPress</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Digital gallery concept with artwork showcase, artist information, advocacy content, and inquiry form.</div>
+      </article>
+      <article class="je-card" data-kind="tool" data-keywords="task scheduler organizer calendar drag drop weekly monthly tasks planner">
+        <div class="je-meta"><span class="je-num">02 / TOOL</span><span class="je-tag">Productivity</span></div>
+        <h3>Task Scheduler v.01</h3><p class="je-desc">A web organizer for planning weekly and monthly tasks using a calendar and drag-and-drop workflow.</p>
+        <div class="je-stack">HTML · Bootstrap · JavaScript · JSON · MySQL · PHP</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Calendar-oriented task planner focused on scheduling, rearranging, and organizing tasks.</div>
+      </article>
+      <article class="je-card" data-kind="commerce" data-keywords="kitao ecommerce online store cosmetics hair makeup nail beauty shop products">
+        <div class="je-meta"><span class="je-num">03 / SHOP</span><span class="je-tag">E-commerce</span></div>
+        <h3>Kitao Online Shop</h3><p class="je-desc">A beauty and cosmetics storefront featuring hair, makeup, nail, and care products.</p>
+        <div class="je-stack">HTML · CSS · JavaScript · PHP</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Storefront experience with product discovery, order administration, and inquiry functionality.</div>
+      </article>
+      <article class="je-card" data-kind="tool" data-keywords="ccmc medical center directory doctors clinics search medical healthcare provider directory">
+        <div class="je-meta"><span class="je-num">04 / SYSTEM</span><span class="je-tag">Medical directory</span></div>
+        <h3>CCMC Medical Center Directory</h3><p class="je-desc">A searchable directory of doctors and clinics, organized to help visitors find provider information.</p>
+        <div class="je-stack">HTML · Bootstrap · JavaScript · jQuery · PHP</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Provider and clinic lookup with categorized listings, contact information, and patient inquiry flow.</div>
+      </article>
+      <article class="je-card" data-kind="tool" data-keywords="taco bell reporting portal sales analytics donations auctions highcharts dashboard reports">
+        <div class="je-meta"><span class="je-num">05 / DATA</span><span class="je-tag">Analytics portal</span></div>
+        <h3>Taco Bell Web Portal</h3><p class="je-desc">A reporting portal with monthly and annual analytics for sales, donations, and auction activity.</p>
+        <div class="je-stack">HTML · CSS · JavaScript · jQuery · JSON · WordPress · Highcharts</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Reporting and chart-driven dashboard built to make activity and performance data easier to review.</div>
+      </article>
+      <article class="je-card" data-kind="tool" data-keywords="pride industries form management system fms forms reporting custom form reports">
+        <div class="je-meta"><span class="je-num">06 / SYSTEM</span><span class="je-tag">Form management</span></div>
+        <h3>Pride Industries FMS</h3><p class="je-desc">A flexible form management system for creating forms and generating reports on demand.</p>
+        <div class="je-stack">HTML · CSS · JavaScript · jQuery · JSON · WordPress · Highcharts</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Form builder and reporting workflow supporting user-created forms and flexible data visualization.</div>
+      </article>
+      <article class="je-card" data-kind="website" data-keywords="italpinas corporate website revamp projects company services profile advocacy">
+        <div class="je-meta"><span class="je-num">07 / WEB</span><span class="je-tag">Corporate site</span></div>
+        <h3>ITALPinas Website Revamp</h3><p class="je-desc">A corporate web experience highlighting projects, company profile, advocacy, and services.</p>
+        <div class="je-stack">HTML · Bootstrap · JavaScript · jQuery · WordPress</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Corporate information architecture and web redesign for presenting company work, services, and mission.</div>
+      </article>
+      <article class="je-card" data-kind="commerce" data-keywords="megadeals group buying marketplace deals philippines ecommerce payments promotions">
+        <div class="je-meta"><span class="je-num">08 / COMMERCE</span><span class="je-tag">Group buying</span></div>
+        <h3>Megadeals</h3><p class="je-desc">A group-buying platform with limited-time deals across goods, retail, and services.</p>
+        <div class="je-stack">E-commerce · Payments · Promotions · Email campaigns</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Deal-based shopping experience with promotions, online payments, friend invites, newsletters, and campaign email.</div>
+      </article>
+      <article class="je-card" data-kind="website" data-keywords="perfect cars vehicle catalogue used cars listing search advanced search thai english translation upload">
+        <div class="je-meta"><span class="je-num">09 / WEB</span><span class="je-tag">Automotive</span></div>
+        <h3>Perfect Cars v.01</h3><p class="je-desc">A vehicle catalogue with searchable listings, language support, and car listing uploads.</p>
+        <div class="je-stack">HTML · CSS · JavaScript · jQuery · WordPress</div>
+        <button class="je-more" type="button" aria-expanded="false">View project notes +</button><div class="je-details" hidden>Includes basic and advanced vehicle search, English–Thai language support, listing uploads, and inquiry functionality.</div>
+      </article>
+    </div>
+    <div class="je-empty" role="status">No matching projects found. Try another search or filter.</div>
+    <div class="je-foot"><span>A little curiosity. A lot of iteration.</span><b>9 projects in this collection</b></div>
+  </section>
+  <script>
+    (function(){
+      var root=document.getElementById('jem-project-explorer');if(!root||root.dataset.ready)return;root.dataset.ready='1';
+      var buttons=root.querySelectorAll('.je-filter'),cards=root.querySelectorAll('.je-card'),search=root.querySelector('.je-search'),empty=root.querySelector('.je-empty'),filter='all';
+      function render(){var q=search.value.trim().toLowerCase(),shown=0;cards.forEach(function(card){var category=filter==='all'||card.dataset.kind===filter;var text=(card.dataset.keywords+' '+card.textContent).toLowerCase();var match=!q||text.indexOf(q)!==-1;var visible=category&&match;card.hidden=!visible;if(visible)shown++;});empty.style.display=shown?'none':'block';}
+      buttons.forEach(function(btn){btn.addEventListener('click',function(){filter=btn.dataset.filter;buttons.forEach(function(b){b.classList.remove('is-active');b.setAttribute('aria-pressed','false');});btn.classList.add('is-active');btn.setAttribute('aria-pressed','true');render();});});
+      search.addEventListener('input',render);
+      root.querySelectorAll('.je-more').forEach(function(btn){btn.addEventListener('click',function(){var detail=btn.nextElementSibling,open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));detail.hidden=open;btn.textContent=open?'View project notes +':'Hide notes −';});});
+    })();
+  </script>
+</div>
